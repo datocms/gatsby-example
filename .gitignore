@@ -1,0 +1,6 @@
+node_modules/
+deploy.db
+public/
+.intermediate-representation/
+.cache
+.gatsby-context

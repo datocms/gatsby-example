@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "gatsby": "file:/Users/steffoz/code/gatsby",
+    "gatsby-datocms-source": "file:/Users/steffoz/code/gatsby-datocms-source"
+  }
+}
