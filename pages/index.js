@@ -2,15 +2,17 @@ import React, { PropTypes } from 'react'
 import { Link } from 'react-router'
 
 export default class Homepage extends React.Component {
-  renderExcerpt({ node: post }) {
+  renderExcerpt(post) {
     return (
-      <Link key={post.path} to={post.path}>
-        {post.frontmatter.title}
-      </Link>
+      <div>
+        <Link key={post.id} to={`/posts/${post.slug}.html`}>
+          <strong>{post.title}</strong>: {post.excerpt}
+        </Link>
+      </div>
     );
   }
   render() {
-    const posts = this.props.data.allMarkdown.edges;
+    const posts = this.props.data.datocms.blogPosts;
 
     return (
       <div>
@@ -22,14 +24,12 @@ export default class Homepage extends React.Component {
 
 export const pageQuery = `
   {
-    allMarkdown(first: 2000) {
-      edges {
-        node {
-          path
-          frontmatter {
-            title
-          }
-        }
+    datocms {
+      blogPosts {
+        id
+        slug
+        title
+        excerpt
       }
     }
   }
